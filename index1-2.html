@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Марина Федорина — Психолог. Индивидуальные консультации для женщин</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FAF7F2;
+    --bg-2:#F3EDE3;
+    --accent:#8B6F47;
+    --accent-dark:#6B5535;
+    --accent-soft:#C9A87C;
+    --text:#2C2C2C;
+    --muted:#6B6B6B;
+    --line:#E6DFD3;
+    --white:#FFFFFF;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.7;
+    font-weight:300;
+    overflow-x:hidden;
+  }
+  .serif{font-family:'Cormorant Garamond',serif;font-weight:500;letter-spacing:-0.01em}
+  .container{max-width:1240px;margin:0 auto;padding:0 32px}
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  button{font-family:inherit;cursor:pointer;border:none;background:none}
+
+  /* NAV */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    padding:22px 0;
+    background:rgba(250,247,242,0.85);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    border-bottom:1px solid transparent;
+    transition:all .3s ease;
+  }
+  nav.scrolled{border-bottom-color:var(--line);padding:14px 0}
+  .nav-inner{display:flex;justify-content:space-between;align-items:center}
+  .logo{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;letter-spacing:.02em}
+  .logo span{color:var(--accent)}
+  .nav-links{display:flex;gap:38px;list-style:none}
+  .nav-links a{font-size:14px;font-weight:400;position:relative;transition:color .25s}
+  .nav-links a::after{content:'';position:absolute;left:0;bottom:-4px;width:0;height:1px;background:var(--accent);transition:width .3s}
+  .nav-links a:hover{color:var(--accent)}
+  .nav-links a:hover::after{width:100%}
+  .nav-cta{
+    padding:12px 26px;border:1px solid var(--text);border-radius:40px;
+    font-size:13px;font-weight:500;letter-spacing:.04em;
+    transition:all .3s;
+  }
+  .nav-cta:hover{background:var(--text);color:var(--bg)}
+  .burger{display:none;flex-direction:column;gap:5px;cursor:pointer}
+  .burger span{width:26px;height:1.5px;background:var(--text);transition:.3s}
+
+  /* HERO */
+  .hero{
+    min-height:100vh;
+    padding:140px 0 80px;
+    display:flex;align-items:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:'';position:absolute;top:-200px;right:-200px;
+    width:600px;height:600px;border-radius:50%;
+    background:radial-gradient(circle,rgba(201,168,124,.18),transparent 70%);
+    pointer-events:none;
+  }
+  .hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:80px;align-items:center}
+  .hero-photo{
+    position:relative;
+    aspect-ratio:3/4;
+    border-radius:4px;
+    overflow:hidden;
+  }
+  .hero-photo img{width:100%;height:100%;object-fit:cover}
+  .hero-photo::after{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(180deg,transparent 60%,rgba(44,44,44,.15));
+  }
+  .hero-photo .frame{
+    position:absolute;top:20px;left:20px;right:20px;bottom:20px;
+    border:1px solid rgba(255,255,255,.35);
+    pointer-events:none;z-index:2;
+  }
+  .hero-badge{
+    position:absolute;bottom:32px;left:32px;z-index:3;
+    color:#fff;font-family:'Cormorant Garamond',serif;
+    font-size:14px;letter-spacing:.2em;text-transform:uppercase;
+  }
+  .hero-content .eyebrow{
+    font-size:13px;letter-spacing:.3em;text-transform:uppercase;
+    color:var(--accent);margin-bottom:28px;font-weight:500;
+  }
+  .hero h1{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(42px,5.2vw,72px);
+    line-height:1.05;font-weight:500;
+    margin-bottom:32px;
+  }
+  .hero h1 em{font-style:italic;color:var(--accent);font-weight:400}
+  .hero p{font-size:17px;color:var(--muted);margin-bottom:20px;max-width:520px}
+  .hero-features{
+    list-style:none;margin:36px 0 44px;
+    display:flex;flex-direction:column;gap:14px;
+  }
+  .hero-features li{
+    display:flex;gap:16px;align-items:flex-start;
+    font-size:15px;color:var(--text);
+  }
+  .hero-features li::before{
+    content:'';flex-shrink:0;width:8px;height:8px;
+    background:var(--accent);border-radius:50%;
+    margin-top:9px;
+  }
+  .btn{
+    display:inline-block;
+    padding:20px 44px;
+    background:var(--text);color:var(--bg);
+    border-radius:50px;
+    font-size:13px;letter-spacing:.22em;text-transform:uppercase;
+    font-weight:500;
+    transition:all .35s cubic-bezier(.2,.8,.2,1);
+    position:relative;overflow:hidden;
+  }
+  .btn:hover{background:var(--accent);transform:translateY(-2px);box-shadow:0 20px 40px -20px rgba(139,111,71,.5)}
+  .btn-outline{background:transparent;color:var(--text);border:1px solid var(--text)}
+  .btn-outline:hover{background:var(--text);color:var(--bg)}
+  .hero-note{
+    margin-top:24px;font-size:24px;letter-spacing:.15em;
+    text-transform:uppercase;color:var(--muted);
+  }
+
+  /* SECTION */
+  section{padding:130px 0;position:relative}
+  .section-label{
+    font-size:12px;letter-spacing:.3em;text-transform:uppercase;
+    color:var(--accent);margin-bottom:22px;font-weight:500;
+  }
+  .section-title{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(36px,4vw,56px);
+    line-height:1.1;font-weight:500;
+    margin-bottom:28px;
+  }
+  .section-title em{font-style:italic;color:var(--accent);font-weight:400}
+  .section-sub{font-size:17px;color:var(--muted);max-width:620px;margin-bottom:60px}
+
+  /* BLOCK 2 - PROBLEM */
+  .problem{background:var(--bg-2)}
+  .problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+  .voices{
+    display:flex;flex-direction:column;gap:18px;
+    margin-bottom:40px;
+  }
+  .voice{
+    padding:22px 28px;
+    background:var(--bg);
+    border-left:2px solid var(--accent);
+    font-family:'Cormorant Garamond',serif;
+    font-size:22px;font-style:italic;
+    color:var(--text);
+    transition:transform .3s;
+  }
+  .voice:hover{transform:translateX(6px)}
+  .problem-text{font-size:16px;color:var(--text);margin-bottom:20px}
+  .problem-text strong{color:var(--accent);font-weight:500}
+  .dawn{
+    margin-top:40px;padding:36px;
+    background:var(--bg);
+    border-radius:4px;
+    border-left:3px solid var(--accent);
+  }
+  .dawn h4{
+    font-family:'Cormorant Garamond',serif;
+    font-size:28px;margin-bottom:14px;font-weight:500;
+  }
+  .dawn p{font-size:15px;color:var(--muted)}
+  .dawn em{color:var(--accent);font-style:italic;font-weight:500}
+
+  /* BLOCK 3 - CONSEQUENCES */
+  .consequences .grid{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:2px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  .consequence{
+    background:var(--bg);
+    padding:44px 36px;
+    transition:background .35s;
+    position:relative;
+  }
+  .consequence:hover{background:var(--bg-2)}
+  .consequence .num{
+    font-family:'Cormorant Garamond',serif;
+    font-size:48px;color:var(--accent-soft);
+    font-weight:500;line-height:1;margin-bottom:18px;
+  }
+  .consequence h3{
+    font-family:'Cormorant Garamond',serif;
+    font-size:24px;margin-bottom:14px;font-weight:500;
+  }
+  .consequence p{font-size:15px;color:var(--muted)}
+  .cta-center{text-align:center;margin-top:70px}
+
+  /* BLOCK 4 - STEPS */
+  .steps{background:var(--bg-2)}
+  .steps-list{display:flex;flex-direction:column;gap:2px}
+  .step{
+    display:grid;grid-template-columns:120px 1fr;gap:50px;
+    padding:50px 0;
+    border-bottom:1px solid var(--line);
+    align-items:start;
+  }
+  .step:last-child{border-bottom:none}
+  .step-num{
+    font-family:'Cormorant Garamond',serif;
+    font-size:72px;line-height:1;
+    color:var(--accent);font-weight:500;
+  }
+  .step-num span{font-size:14px;letter-spacing:.2em;text-transform:uppercase;display:block;margin-top:14px;color:var(--muted);font-family:'Inter',sans-serif}
+  .step h3{
+    font-family:'Cormorant Garamond',serif;
+    font-size:30px;margin-bottom:16px;font-weight:500;
+  }
+  .step p{font-size:16px;color:var(--muted);margin-bottom:12px}
+  .step ul{list-style:none;margin-top:14px}
+  .step ul li{
+    padding-left:24px;position:relative;
+    font-size:15px;color:var(--muted);margin-bottom:8px;
+  }
+  .step ul li::before{
+    content:'—';position:absolute;left:0;color:var(--accent);
+  }
+  .step-result{
+    margin-top:18px;padding:18px 22px;
+    background:var(--bg);
+    border-left:2px solid var(--accent);
+    font-size:14px;color:var(--text);
+    font-style:italic;
+  }
+
+  /* BLOCK 5 - PRICING */
+  .pricing-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:30px}
+  .price-card{
+    background:var(--white);
+    border:1px solid var(--line);
+    padding:56px 48px;
+    border-radius:4px;
+    position:relative;
+    transition:all .4s;
+  }
+  .price-card:hover{transform:translateY(-6px);box-shadow:0 30px 60px -30px rgba(44,44,44,.15)}
+  .price-card.featured{
+    background:var(--text);color:var(--bg);
+    border-color:var(--text);
+  }
+  .price-card.featured .price-old,
+  .price-card.featured .price-features li{color:rgba(250,247,242,.7)}
+  .price-card.featured .price-tag{color:var(--accent-soft)}
+  .price-tag{
+    font-size:12px;letter-spacing:.25em;text-transform:uppercase;
+    color:var(--accent);margin-bottom:22px;font-weight:500;
+  }
+  .price-card h3{
+    font-family:'Cormorant Garamond',serif;
+    font-size:38px;margin-bottom:18px;font-weight:500;line-height:1.1;
+  }
+  .price-desc{font-size:15px;color:var(--muted);margin-bottom:32px;min-height:70px}
+  .price-features{list-style:none;margin-bottom:36px}
+  .price-features li{
+    padding:14px 0;border-bottom:1px solid var(--line);
+    font-size:15px;display:flex;gap:14px;align-items:center;
+  }
+  .price-features li::before{
+    content:'';width:6px;height:6px;background:var(--accent);border-radius:50%;flex-shrink:0;
+  }
+  .price-card.featured .price-features li{border-color:rgba(250,247,242,.15)}
+  .price-amount{margin-bottom:28px}
+  .price-old{
+    font-size:18px;color:var(--muted);
+    text-decoration:line-through;margin-bottom:6px;
+  }
+  .price-new{
+    font-family:'Cormorant Garamond',serif;
+    font-size:52px;font-weight:500;line-height:1;
+  }
+  .price-new small{font-size:18px;font-weight:400;margin-left:4px}
+  .price-installment{
+    font-size:13px;color:var(--muted);margin-top:10px;
+    letter-spacing:.05em;
+  }
+  .price-card .btn{width:100%;text-align:center}
+  .price-card.featured .btn{background:var(--bg);color:var(--text)}
+  .price-card.featured .btn:hover{background:var(--accent-soft)}
+  .limited{
+    text-align:center;margin-top:24px;
+    font-size:12px;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--muted);
+  }
+
+  /* BLOCK 6 - FAQ */
+  .faq{background:var(--bg-2)}
+  .faq-intro{
+    max-width:760px;margin-bottom:60px;
+  }
+  .faq-intro blockquote{
+    font-family:'Cormorant Garamond',serif;
+    font-size:32px;font-style:italic;
+    color:var(--text);margin:30px 0;
+    padding-left:30px;border-left:2px solid var(--accent);
+    line-height:1.3;
+  }
+  .faq-intro p{font-size:16px;color:var(--muted);margin-bottom:16px}
+  .faq-intro .rule{
+    margin-top:28px;padding:24px 28px;
+    background:var(--bg);
+    border-radius:4px;
+    font-family:'Cormorant Garamond',serif;
+    font-size:22px;font-style:italic;
+    color:var(--accent);
+  }
+  .faq-list{display:flex;flex-direction:column;gap:2px}
+  .faq-item{
+    background:var(--bg);
+    border:1px solid var(--line);
+    border-radius:4px;
+    overflow:hidden;
+    transition:all .3s;
+  }
+  .faq-item:hover{border-color:var(--accent-soft)}
+  .faq-q{
+    padding:28px 32px;
+    display:flex;justify-content:space-between;align-items:center;
+    cursor:pointer;
+    font-family:'Cormorant Garamond',serif;
+    font-size:22px;font-weight:500;
+  }
+  .faq-q .plus{
+    width:32px;height:32px;border-radius:50%;
+    border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;
+    font-size:20px;color:var(--accent);
+    transition:transform .35s;
+    flex-shrink:0;
+  }
+  .faq-item.open .plus{transform:rotate(45deg);background:var(--accent);color:#fff;border-color:var(--accent)}
+  .faq-a{
+    max-height:0;overflow:hidden;
+    transition:max-height .4s ease,padding .4s ease;
+    padding:0 32px;
+    font-size:15px;color:var(--muted);line-height:1.7;
+  }
+  .faq-item.open .faq-a{max-height:300px;padding:0 32px 28px}
+
+  /* BLOCK 7 - ABOUT */
+  .about-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:80px;align-items:center}
+  .about-photo{
+    aspect-ratio:4/5;
+    border-radius:4px;overflow:hidden;
+    position:relative;
+  }
+  .about-photo img{width:100%;height:100%;object-fit:cover}
+  .about-photo::before{
+    content:'';position:absolute;inset:16px;
+    border:1px solid rgba(255,255,255,.4);
+    pointer-events:none;z-index:2;
+  }
+  .about-text h2{margin-bottom:24px}
+  .about-text p{font-size:16px;color:var(--muted);margin-bottom:18px}
+  .edu-item{margin-bottom:24px}
+  .edu-item:last-child{margin-bottom:0}
+
+  /* FOOTER */
+  footer{
+    background:var(--text);color:var(--bg);
+    padding:70px 0 30px;
+  }
+  .footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:60px;margin-bottom:50px}
+  .footer-logo{font-family:'Cormorant Garamond',serif;font-size:32px;margin-bottom:18px}
+  .footer-logo span{color:var(--accent-soft)}
+  .footer-desc{font-size:14px;color:rgba(250,247,242,.6);max-width:320px}
+  .footer-col h5{
+    font-size:12px;letter-spacing:.25em;text-transform:uppercase;
+    color:var(--accent-soft);margin-bottom:22px;font-weight:500;
+  }
+  .footer-col a{
+    display:block;font-size:14px;color:rgba(250,247,242,.7);
+    margin-bottom:12px;transition:color .25s;
+  }
+  .footer-col a:hover{color:var(--bg)}
+  .footer-bottom{
+    padding-top:30px;border-top:1px solid rgba(250,247,242,.1);
+    display:flex;justify-content:space-between;
+    font-size:12px;color:rgba(250,247,242,.4);
+    letter-spacing:.05em;
+  }
+
+  /* REVEAL ANIMATION */
+  .reveal{opacity:0;transform:translateY(40px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.8,.2,1)}
+  .reveal.visible{opacity:1;transform:translateY(0)}
+  .reveal-delay-1{transition-delay:.1s}
+  .reveal-delay-2{transition-delay:.2s}
+  .reveal-delay-3{transition-delay:.3s}
+
+  /* RESPONSIVE */
+  @media(max-width:960px){
+    .nav-links{display:none}
+    .burger{display:flex}
+    .hero-grid,.problem-grid,.about-grid{grid-template-columns:1fr;gap:50px}
+    .hero{padding:120px 0 60px}
+    .hero-photo{max-width:420px;margin:0 auto}
+    .consequences .grid,.pricing-grid{grid-template-columns:1fr}
+    .step{grid-template-columns:1fr;gap:18px}
+    .step-num{font-size:56px}
+    .footer-grid{grid-template-columns:1fr;gap:40px}
+    section{padding:90px 0}
+    .price-card{padding:40px 30px}
+  }
+  @media(max-width:560px){
+    .container{padding:0 20px}
+    .hero h1{font-size:40px}
+    .section-title{font-size:34px}
+    .price-new{font-size:42px}
+    .voice{font-size:19px;padding:18px 22px}
+    .consequence{padding:32px 24px}
+    .faq-q{font-size:19px;padding:22px 24px}
+  }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="container nav-inner">
+    <a href="#" class="logo">Марина <span>Федорина</span></a>
+    <ul class="nav-links">
+      <li><a href="#problem">Проблема</a></li>
+      <li><a href="#steps">Как работаем</a></li>
+      <li><a href="#pricing">Стоимость</a></li>
+      <li><a href="#faq">Вопросы</a></li>
+      <li><a href="#about">Обо мне</a></li>
+    </ul>
+    <a href="#pricing" class="nav-cta">Записаться</a>
+    <div class="burger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-photo reveal">
+        <img src="images/image.jpeg" alt="Марина Федорина — психолог">
+        <div class="frame"></div>
+        <div class="hero-badge">Психолог · Консультант</div>
+      </div>
+      <div class="hero-content">
+        <!-- <div class="eyebrow reveal">Пакет индивидуальных консультаций</div> -->
+        <h1 class="reveal reveal-delay-1">Пакет <em>индивидуальных консультаций</em> с Мариной Федориной</h1>
+        <p class="reveal reveal-delay-2">Интенсивная индивидуальная работа для женщин кто хочет гармонично и качественно прожить следующий этап своей жизни, когда прежние цели, роли и смыслы больше не вдохновляют, а энергия практически на нуле.</p>
+        <ul class="hero-features reveal reveal-delay-2">
+          <li>2,5 месяца индивидуальной интенсивной работы с вами(10 сессий)</li>
+          <!-- <li>Персональное домашнее задание после каждой встречи</li>
+          <li>Системная работа с учётом вашего темпа и запроса</li> -->
+          <li>после каждой сессии, рекомендованное домашнее задание, которое индивидуально подбирается в зависимости от наполненности прошедшей сессии и с которым вы сможете справится не смотря на вашу ежедневную нагрузку</li>
+        </ul>
+        <a href="#pricing" class="btn reveal reveal-delay-3">Забрать пакет консультаций</a>
+        <div class="hero-note reveal reveal-delay-3">Количество мест ограничено!</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOCK 2: PROBLEM -->
+<section class="problem" id="problem">
+  <div class="container">
+    <div class="problem-grid">
+      <div>
+        <!-- <div class="section-label reveal">Знакомо?</div> -->
+        <h2 class="section-title reveal reveal-delay-1">Часто <em>женщина в возрасте 35–50 лет</em> может слышать внутри себя:</h2>
+        <div class="voices">
+          <div class="voice reveal">«Я не реализовала себя»</div>
+          <div class="voice reveal reveal-delay-1">«Хотела путешествовать, а застряла в быту»</div>
+          <div class="voice reveal reveal-delay-2">«Время ушло»</div>
+          <div class="voice reveal reveal-delay-3">«Я недостойна любви и счастья»</div>
+          <div class="voice reveal reveal-delay-3">«Если ребёнка не контролировать — я плохая мать, а как можно контролировать выросшего ребенка?»</div>
+          <div class="voice reveal">«У меня нет сил что-то менять»</div>
+          <div class="voice reveal">«Я должна соответствовать чужим ожиданиям»</div>
+        </div>
+      </div>
+      <div>
+        <p class="problem-text reveal">А еще у женщины <strong>теряются прежние смыслы</strong>, а может даже и ценности в жизни, она понимает, что как раньше она жила жить уже не может, а как по новому еще не знает и не умеет. <strong>Снижаются силы, потеря энергии и ресурса</strong>, часто апатичное состояние при котором, ничего не хочется, да и не можется.</p>
+        <p class="problem-text reveal">Женщина анализирует: соответствуют ли её текущие выборы и достижения тем мечтам, которые были в юности? И может <strong>остро чувствовать утрату контроля над собственным телом</strong>, что подпитывает страх одиночества, ущербности или потери привлекательности, пытаясь порой через <strong>чрезмерное количество инъекций и операций</strong> вернуть себе прежний контроль и ощущение уверенности.</p>
+        <div class="dawn reveal">
+          <h4>Ну а кто-то вместо увядания начинает ощущать рассвет, а обновленные смыслы и опоры снова дают силы и вместо привычного и постоянного «Надо» начинает преобладать <em>«Хочу»</em>. Внутри нет спешки и желания кому-то соответствовать и что-то доказывать. И есть снова цели, желания, но уже <strong>ПРО СЕБЯ</strong> и <strong>ДЛЯ СЕБЯ</strong>.</h4>
+          <!-- <p>Обновлённые смыслы и опоры снова дают силы. Вместо привычного «Надо» начинает преобладать <em>«Хочу»</em>. Внутри нет спешки и желания кому-то соответствовать. И есть снова цели — но уже <em>про себя и для себя</em>.</p> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOCK 3: CONSEQUENCES -->
+<section class="consequences">
+  <div class="container">
+    <div style="text-align:center;max-width:760px;margin:0 auto 70px">
+      <div class="section-label reveal">Если ничего не менять</div>
+      <h2 class="section-title reveal reveal-delay-1">Что будет, если <em>ждать</em>, что само рассосётся?</h2>
+      <p class="section-sub reveal reveal-delay-2" style="margin:0 auto">Или в очередной раз обесценить свои переживания: «Это я всё придумала, с жиру наверное бешусь!»</p>
+    </div>
+    <div class="grid">
+      <div class="consequence reveal">
+        <div class="num">01</div>
+        <h3>Ухудшение физического здоровья</h3>
+        <p> Хронический стресс и эмоциональное напряжение могут провоцировать или обострять психосоматические заболевания: проблемы с сердцем, нарушения сна, изменения аппетита, головные боли, скачки давления. Гормональные изменения, которые часто совпадают с кризисом, дополнительно влияют на самочувствие</p>
+      </div>
+      <div class="consequence reveal reveal-delay-1">
+        <div class="num">02</div>
+        <h3>Депрессия и тревожные расстройства</h3>
+        <p>Хроническое напряжение, чувство пустоты и неудовлетворённости могут перерасти в стойкое депрессивное состояние или тревожные расстройства</p>
+      </div>
+      <div class="consequence reveal">
+        <div class="num">03</div>
+        <h3>Отсутствие энергии и сил</h3>
+        <p>С каждым годом энергии и ресурса будет становится все меньше и меньше, а источники где их пополнить будут недоступны</p>
+      </div>
+      <div class="consequence reveal reveal-delay-1">
+        <div class="num">04</div>
+        <h3>Потеря самооценки и идентичности</h3>
+        <p>Женщина может начать обесценивать собственные достижения, чувствовать, что «потеряла себя», растворившись в ролях жены, матери, сотрудника</p>
+      </div>
+      <div class="consequence reveal">
+        <div class="num">05</div>
+        <h3>Конфликты и напряжение в семье</h3>
+        <p>Раздражение на партнёра, детей, родителей, ощущение непонимания и отчуждения могут привести к серьёзным разногласиям, а в некоторых случаях — к разводу. Либо может появится желание сменить партнера.</p>
+      </div>
+      <div class="consequence reveal reveal-delay-1">
+        <div class="num">06</div>
+        <h3>Желание «вернуть молодость»</h3>
+        <p>Чрезмерные усилия в косметологии или пластической хирургии в попытке остановить возрастные изменения, которые невозможно отменить</p>
+      </div>
+      <div class="consequence reveal">
+        <div class="num">07</div>
+        <h3>Невозможность отсепарироваться от детей</h3>
+        <p>Дети так и остаются одним из главных смыслов вашей жизни и соответственно у детей в свою очередь не будет возможности повзрослеть до конца и пойти своим путем, отличным от вашего</p>
+      </div>
+      <div class="consequence reveal reveal-delay-1">
+        <div class="num">08</div>
+        <h3>Зависимости</h3>
+        <p>Попытки заглушить переживания с помощью алкоголя, переедания, азартных игр или других рискованных форм поведения</p>
+      </div>
+    </div>
+    <div class="cta-center reveal">
+      <a href="#pricing" class="btn">Забрать пакет консультаций</a>
+    </div>
+  </div>
+</section>
+
+<!-- BLOCK 4: STEPS -->
+<section class="steps" id="steps">
+  <div class="container">
+    <div style="max-width:760px;margin-bottom:70px">
+      <div class="section-label reveal">Как мы работаем</div>
+      <h2 class="section-title reveal reveal-delay-1">А чтобы появилось снова <em>желание просыпасться и вставать по утрам</em> и жить наполную свой каждый день, понимание того, что вы хотите именно сейчас, а не что хотели 10-20 лет назад, появились новые жизненные смыслы, желания, дающие энергию и ресурс и <em>больше жизни из слова «хочу» и гораздо меньше из слова «надо».</em></h2>
+      <p class="section-sub reveal reveal-delay-2">Нужны новые действия и их алгоритм, для того, чтобы начать внедрять его в жизнь, получая новые состояния и результаты и для этого мы с вами:</p>
+    </div>
+    <div class="steps-list">
+      <div class="step reveal">
+        <div class="step-num">01<span>Шаг первый</span></div>
+        <div>
+          <h3>«Нарисуем» картину того, что сейчас происходит у вас в жизни, вашу текущую ситуацию, ваши переживания, страхи, опасения связанные с ней, еще раз скорректировав запрос и цель нашей с вами работы.</h3>
+          <!-- <p>Ваша ситуация, переживания, страхи, опасения. Ещё раз скорректируем запрос и цель нашей работы.</p> -->
+          <div class="step-result"><strong>В результате появится большая ясность и конкретные цели терапии.</strong></div>
+        </div>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">02<span>Шаг второй</span></div>
+        <div>
+          <h3> Постепенно будем анализировать каждую важную для вас сферу (отношений с партнером, детьми, родителями, профессиональную, сферу хобби, интересов и тд)</h3>
+          <!-- <p>Отношения с партнёром, детьми, родителями, профессиональная сфера, хобби, интересы.</p> -->
+          <ul>
+            <li>посмотрим ваши ожидания и что сейчас имеется, происходит в текущей жизненной ситуации</li>
+            <li>что не сбылось, не реализовалось</li>
+          </ul>
+          <p style="margin-top:14px"><strong>Начнём «запускать» процесс горевания.</strong></p>
+        </div>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">03<span>Шаг третий</span></div>
+        <div>
+          <h3>Исследуем, откуда появились то, что вас сейчас не устраивает, почему были сделаны такие выборы, какие установки, прошлый травматичный опыт, внутренние конфликты и накопленное напряжение связаны с вашим сегодняшним состоянием.</h3>
+          <!-- <p>Откуда появилось то, что вас сейчас не устраивает. Почему были сделаны такие выборы. Какие установки, травматичный опыт, внутренние конфликты и накопленное напряжение связаны с вашим сегодняшним состоянием.</p> -->
+          <div class="step-result"><strong>В результате вы начнете лучше понимать себя, свое тело, свои чувства, причины своих реакций, своих выборов, постепенно выстраивая границы с собой и с своим окружением.</strong></div>
+        </div>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">04<span>Шаг четвёртый</span></div>
+        <div>
+          <h3>Усилив контакт с собой и понимание себя и своих границ,  будем анализировать и отделять, что для вас значимо, ценно и дает вашей жизни смысл, опору, ценность, от того, что уже перестало работать, не эффективно и больше разрушает вас, чем дает жизненной силы, ресурса и энергии.</h3>
+          <!-- <p>Усиливая контакт с собой, будем анализировать и отделять то, что для вас значимо, ценно и даёт жизни смысл и опору — от того, что уже перестало работать, неэффективно и больше разрушает, чем даёт жизненной силы.</p> -->
+        </div>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">05<span>Шаг пятый</span></div>
+        <div>
+          <h3>Определив то, что уже «не работает», будем выстраивать новое смысловое наполнение жизни, постепенно внедряя его в текущую жизненную ситуацию.</h3>
+          <p>Определив то, что уже «не работает», будем выстраивать новое смысловое наполнение жизни, постепенно внедряя его в текущую ситуацию.</p>
+          <div class="step-result"><strong>Что будет давать желание просыпаться по утрам, жить свой «день…жизнь», находясь в ресурсном состоянии, получая заботу и поддержку не только от самой себя, но и от окружения.</strong></div>
+        </div>
+      </div>
+    </div>
+    <p class="reveal" style="text-align:center;margin-top:50px;font-size:20px;max-width:640px;margin-left:auto;margin-right:auto">
+      Все эти этапы будут сопровождаться, рекомендованным к выполнению д\з, которое будет подбираться индивидуально, в зависимости от материала проведенной сессии, что даст еще больше глубины и интенсивности процесса. 
+    </p>
+    <div class="cta-center reveal" style="margin-top:50px">
+      <a href="https://t.me/Ma81rui" class="btn">Забрать пакет консультаций</a>
+    </div>
+  </div>
+</section>
+
+<!-- BLOCK 5: PRICING -->
+<section id="pricing">
+  <div class="container">
+    <div style="text-align:center;max-width:720px;margin:0 auto 70px">
+      <div class="section-label reveal">Стоимость</div>
+      <h2 class="section-title reveal reveal-delay-1">Индивидуальная <em>интенсивная</em> работа</h2>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card featured reveal">
+        <div class="price-tag">Интенсив · 2,5 месяца</div>
+        <h3>Пакет индивидуальных консультаций</h3>
+        <!-- <p class="price-desc">Системная работа над проблемой с учётом индивидуальных особенностей вашей психики и возможного темпа.</p> -->
+        <ul class="price-features">
+          <li>10 индивидуальных сессий</li>
+          <li>1 встреча в неделю · 50 минут</li>
+          <li>Системная работа над проблемой с учетом индивидуальных особенностей психики, вашего возможного темпа работы, где мы будем выстраивать каждую нашу встречу исходя из вашего актуального запроса, тех волнующих проблем и ситуаций.
+После каждой проведенной сессии, вам будет рекомендовано выполненение домашнего задания, которое будет подбираться в зависимости от тематики прошедшей встречи и могло легко вписаться в ваш жизненный график.
+</li>
+          <!-- <li>Обратная связь в Telegram в будни 10:00–17:00</li>
+          <li>Сессии на платформе Яндекс-Телемост</li> -->
+        </ul>
+        <div class="price-amount">
+          <div class="price-old">100 000 ₽</div>
+          <div class="price-new">80 000 <small>₽</small></div>
+          <div class="price-installment">Беспроцентная рассрочка · 6 700 ₽/мес</div>
+        </div>
+        <a href="https://t.me/Ma81rui" class="btn">Забрать пакет консультаций</a>
+      </div>
+      <div class="price-card reveal reveal-delay-1">
+        <div class="price-tag">Разовая встреча</div>
+        <h3>Одна консультация</h3>
+        <p class="price-desc">Разверну в нужное для вас направление, что позволит увидеть ситуацию совсем под другм углом.
+ Инсайты и осознания гарантированы!
+</p>
+        <ul class="price-features">
+          <li>1 час 30 минут</li>
+          <li>Разбираем 1 ваш запрос</li>
+          <li>Подробный план и понимание, куда двигаться, с конкретными рекомендациями по вашему запросу</li>
+          <!-- <li>Инсайты и осознания гарантированы</li> -->
+        </ul>
+        <div class="price-amount">
+          <div class="price-old">15 000 ₽</div>
+          <div class="price-new">10 000 <small>₽</small></div>
+        </div>
+        <a href="https://t.me/Ma81rui" class="btn btn-outline">Забрать пакет консультаций</a>
+      </div>
+    </div>
+    <div class="limited reveal">Количество мест ограничено!</div>
+  </div>
+</section>
+
+<!-- BLOCK 6: FAQ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="faq-intro">
+      <div class="section-label reveal">Сомнения и страхи</div>
+      <h2 class="section-title reveal reveal-delay-1">Возможно вас беспокоят сомнения и страхи( и это вполне нормально): <em>«А справитесь ли вы? А сможете ли?»</em></h2>
+      <blockquote class="reveal reveal-delay-2">Моя  работа выстроена по методике, которая дает пошаговое понимание себя и своей ситуации, даже если раньше вы не были в терапии. 
+А любое осознание запускает внутренние и внешние изменения. В психотерапии есть такое правило: «Нельзя изменить то,  что не осознается».
+Я буду вас не просто слушать, а активно сопровождать в процессе, отражая ваши чувства и переживания. Если что-то непонятно — поясню, если сложно — мы разберёмся вместе.
+Если у вас есть четкое намерение изменить, улучшить сложившуюся ситуацию, ты ваши психика поведет вас в этом направлении и результат будет неизбежен.
+
+Ну и я  имею большой опыт не только как специалист-психолог, но еще как женщина, прошедшая данный кризис и на этот опыт вы можете опереться находясь в работе со мной.
+</blockquote>
+      <!-- <p class="reveal">Моя работа выстроена по методике, которая даёт пошаговое понимание себя и своей ситуации — даже если раньше вы не были в терапии. Любое осознание запускает внутренние и внешние изменения.</p>
+      <p class="reveal">Я буду вас не просто слушать, а активно сопровождать в процессе, отражая ваши чувства и переживания. Если что-то непонятно — поясню, если сложно — разберёмся вместе.</p>
+      <div class="rule reveal">«Нельзя изменить то, что не осознаётся»</div>
+      <p class="reveal" style="margin-top:22px">Если у вас есть чёткое намерение изменить, улучшить сложившуюся ситуацию — ваша психика поведёт вас в этом направлении, и результат будет неизбежен. Я имею большой опыт не только как специалист-психолог, но и как женщина, прошедшая данный кризис — и на этот опыт вы можете опереться, находясь в работе со мной.</p>-->
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <div class="faq-q">Где проводятся сессии?<span class="plus">+</span></div>
+        <div class="faq-a">Сессии проводятся на платформе Яндекс-Телемост. Скачивать ничего дополнительно не нужно. В предложенном графике вы сможете выбрать удобный для вас день и время.</div>
+      </div>
+      <div class="faq-item reveal reveal-delay-1">
+        <div class="faq-q">Как будет предоставляться обратная связь?<span class="plus">+</span></div>
+        <div class="faq-a">Обратная связь, если у вас возникнут вопросы по выполнению домашнего задания, будет от меня в личных сообщениях в Telegram, в будни с 10:00 до 17:00.</div>
+      </div>
+      <div class="faq-item reveal reveal-delay-2">
+        <div class="faq-q">Можно ли оплатить из-за границы?<span class="plus">+</span></div>
+        <div class="faq-a">Да, возможно. Но предварительно напишите мне об этом.</div>
+      </div>
+    </div>
+    <div class="cta-center reveal" style="margin-top:60px">
+      <a href="#pricing" class="btn">ЗАБРАТЬ ПАКЕТ КОНСУЛЬТАЦИЙ</a>
+      <div class="limited" style="margin-top:20px">Количество мест ограничено!</div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOCK 7: ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-photo reveal">
+        <img src="images/image2.jpeg" alt="Марина Федорина">
+      </div>
+      <div class="about-text">
+        <div class="section-label reveal">Обо мне</div>
+        <h2 class="section-title reveal reveal-delay-1">Марина <em>Федорина</em></h2>
+        
+        <p class="reveal" style="font-size:18px; color:var(--text); margin-bottom:16px;">Более 10 лет частной практики, опыт преподавания психологии.</p>
+        <p class="reveal" style="font-size:18px; color:var(--text); margin-bottom:16px;">Автор и ведущая женских групп и тренингов.</p>
+        <p class="reveal" style="font-size:18px; color:var(--text); margin-bottom:40px;">Счастливая жена и многодетная мама.</p>
+
+        <h3 class="reveal" style="font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:500; margin-bottom:28px; color:var(--text);">Образование и квалификация</h3>
+        
+        <div class="edu-list reveal">
+          <div class="edu-item">
+            <div style="font-size:12px; letter-spacing:.2em; text-transform:uppercase; color:var(--accent); margin-bottom:6px; font-weight:500;">Психолог-педагог</div>
+            <div style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:500; color:var(--text);">Вятский Государственный Гуманитарный Университет</div>
+          </div>
+          <div class="edu-item">
+            <div style="font-size:12px; letter-spacing:.2em; text-transform:uppercase; color:var(--accent); margin-bottom:6px; font-weight:500;">Семейное и детское консультирование</div>
+            <div style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:500; color:var(--text);">Московский Институт Психоанализа</div>
+          </div>
+          <div class="edu-item">
+            <div style="font-size:12px; letter-spacing:.2em; text-transform:uppercase; color:var(--accent); margin-bottom:6px; font-weight:500;">Психоаналитический психотерапевт</div>
+            <div style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:500; color:var(--text);">Институт Психоанализа на Чистых прудах</div>
+          </div>
+          <div class="edu-item">
+            <div style="font-size:12px; letter-spacing:.2em; text-transform:uppercase; color:var(--accent); margin-bottom:6px; font-weight:500;">Психологическое консультирование взрослых</div>
+            <div style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:500; color:var(--text);">Академия Психологии и Коучинга</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">Марина <span>Федорина</span></div>
+        <!-- <p class="footer-desc">Индивидуальные консультации для женщин, которые готовы к переменам и новому этапу жизни.</p> -->
+      </div>
+      <div class="footer-col">
+        <h5>Навигация</h5>
+        <a href="#problem">Проблема</a>
+        <a href="#steps">Как работаем</a>
+        <a href="#pricing">Стоимость</a>
+        <a href="#faq">Вопросы</a>
+        <a href="#about">Обо мне</a>
+      </div>
+      <div class="footer-col">
+        <h5>Связаться</h5>
+        <a href="https://t.me/Ma81rui">Telegram</a>
+        <!-- <a href="#">WhatsApp</a> -->
+        <!-- <a href="mailto:hello@marinafedorina.ru">hello@marinafedorina.ru</a> -->
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Марина Федорина. Все права защищены.</div>
+      <div>Политика конфиденциальности</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll',()=>{
+    nav.classList.toggle('scrolled',window.scrollY>30);
+  });
+
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  },{threshold:.12,rootMargin:'0px 0px -60px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // FAQ
+  document.querySelectorAll('.faq-item').forEach(item=>{
+    item.querySelector('.faq-q').addEventListener('click',()=>{
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+      if(!isOpen) item.classList.add('open');
+    });
+  });
+
+  // Burger (simple toggle)
+  const burger = document.querySelector('.burger');
+  const navLinks = document.querySelector('.nav-links');
+  burger?.addEventListener('click',()=>{
+    if(navLinks.style.display==='flex'){
+      navLinks.style.display='none';
+    } else {
+      navLinks.style.cssText='display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:var(--bg);padding:24px 32px;gap:20px;border-bottom:1px solid var(--line)';
+    }
+  });
+</script>
+
+</body>
+</html>

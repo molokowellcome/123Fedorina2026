@@ -171,24 +171,26 @@
   }
   .voices li{
     position:relative;
-    padding:14px 0 14px 34px;
-    border-bottom:1px solid var(--line);
+    padding:10px 0 14px 34px;
+    border-bottom:2px solid var(--line);
     font-family:'Cormorant Garamond',serif;
-    font-size:29px;font-style:italic;
+    font-weight: 850;
+    font-size:24px;
     color:var(--text);
-    line-height:1.35;
+    line-height:2;
     transition:color .25s;
   }
   .voices li:first-child{border-top:1px solid var(--line)}
   .voices li::before{
     content:'→';
-    position:absolute;left:0;top:13px;
+    position:absolute;left:0;top:17px;
     color:var(--accent);
     font-family:'Inter',sans-serif;
-    font-style:normal;font-size:18px;font-weight:500;
+    font-style:normal;font-size:24px;font-weight:500;
   }
   .voices li:hover{color:var(--accent)}
-  .problem-text{font-size:19px;color:var(--text);margin-bottom:18px}
+  .voices li em{color:var(--accent)}
+  .problem-text{font-size:20px;color:var(--text);margin-bottom:18px}
   .problem-text strong{color:var(--accent);font-weight:600}
   .dawn{
     margin-top:40px;padding:36px;
@@ -466,12 +468,12 @@
   }
   @media(max-width:560px){
     .container{padding:0 20px}
-    .hero h1{font-size:40px}
+    .hero h1{font-size:36px}
     .section-title{font-size:34px}
     .price-new{font-size:42px}
-    .voices li{font-size:19px;padding:12px 0 12px 30px}
+    .voices li{font-size:24px;padding:12px 0 12px 30px}
     .consequence{padding:32px 24px}
-    .faq-q{font-size:19px;padding:22px 24px}
+    .faq-q{font-size:22px;padding:22px 24px}
     .step h3{font-size:22px}
   }
 </style>

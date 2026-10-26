@@ -30,6 +30,7 @@
     font-size:20px;
     overflow-x:hidden;
   }
+
   .serif{font-family:'Cormorant Garamond',serif;font-weight:500;letter-spacing:-0.01em}
   .container{max-width:1240px;margin:0 auto;padding:0 32px}
   img{max-width:100%;display:block}
@@ -223,10 +224,38 @@
   }
   .consequence:hover{background:var(--bg-2)}
   .consequence .num{
-    font-family:'Cormorant Garamond',serif;
+    /* font-family:'Cormorant Garamond',serif;
     font-size:50px;color:var(--accent-soft);
-    font-weight:500;line-height:1;margin-bottom:18px;
+    font-weight:500;line-height:1;margin-bottom:18px; */
+    display:flex;
+    flex-direction:row;
+    flex-wrap:nowrap;
+    align-items:center;
+    justify-content:flex-start;
+    gap:16px;
+    font-family:'Cormorant Garamond',serif;
+    font-size:50px;
+    color:var(--accent-soft);
+    font-weight:500;
+    line-height:1;
+    margin-bottom:18px;
+    white-space:nowrap;
   }
+
+  .consequence .num-icon{
+    display: block;
+    width: 1em;
+    height: 1em;
+    max-width: 1em;
+    max-height: 1em;
+    object-fit: contain;
+    flex:0 0 auto;
+    filter: brightness(0) saturate(100%)
+          invert(18%) sepia(58%)
+          saturate(2131%) hue-rotate(330deg)
+          brightness(90%) contrast(45%);
+  }
+
   .consequence h3{
     font-family:'Cormorant Garamond',serif;
     font-size:28px;margin-bottom:14px;font-weight:500;
@@ -562,44 +591,44 @@
     </div>
     <div class="grid">
       <div class="consequence reveal">
-        <div class="num">01</div>
+        <div class="num">01<img src="icons/free-icon-health-and-care-8777516.png" alt="" class="num-icon"></div>
         <h3>Ухудшение физического здоровья</h3>
         <p>Хронический стресс и эмоциональное напряжение могут провоцировать или обострять психосоматические заболевания: проблемы с сердцем, нарушения сна, изменения аппетита, головные боли, скачки давления.</p>
         <p>Гормональные изменения, которые часто совпадают с кризисом, дополнительно влияют на самочувствие</p>
       </div>
       <div class="consequence reveal reveal-delay-1">
-        <div class="num">02</div>
+        <div class="num">02<img src="icons/free-icon-sad-5067004.png" alt="" class="num-icon"></div>
         <h3>Депрессия и тревожные расстройства</h3>
         <p>Хроническое напряжение, чувство пустоты и неудовлетворённости могут перерасти в стойкое депрессивное состояние или тревожные расстройства</p>
       </div>
       <div class="consequence reveal">
-        <div class="num">03</div>
+        <div class="num">03<img src="icons/free-icon-energy-saver-18948923.png" alt="" class="num-icon"></div>
         <h3>Отсутствие энергии и сил</h3>
         <p>С каждым годом энергии и ресурса будет становится все меньше и меньше, а источники где их пополнить будут недоступны</p>
       </div>
       <div class="consequence reveal reveal-delay-1">
-        <div class="num">04</div>
+        <div class="num">04<img src="icons/free-icon-self-care-9037452.png" alt="" class="num-icon"></div>
         <h3>Потеря самооценки и идентичности</h3>
         <p>Женщина может начать обесценивать собственные достижения, чувствовать, что «потеряла себя», растворившись в ролях жены, матери, сотрудника</p>
       </div>
       <div class="consequence reveal">
-        <div class="num">05</div>
+        <div class="num">05<img src="icons/free-icon-conflict-resolution-9583788.png" alt="" class="num-icon"></div>
         <h3>Конфликты и напряжение в семье</h3>
         <p>Раздражение на партнёра, детей, родителей, ощущение непонимания и отчуждения могут привести к серьёзным разногласиям, а в некоторых случаях — к разводу.</p>
         <p>Либо может появится желание сменить партнера.</p>
       </div>
       <div class="consequence reveal reveal-delay-1">
-        <div class="num">06</div>
+        <div class="num">06<img src="icons/free-icon-girl-6448349.png" alt="" class="num-icon"></div>
         <h3>Желание «вернуть молодость»</h3>
         <p>Чрезмерные усилия в косметологии или пластической хирургии в попытке остановить возрастные изменения, которые невозможно отменить</p>
       </div>
       <div class="consequence reveal">
-        <div class="num">07</div>
+        <div class="num">07<img src="icons/free-icon-pacifier-2717533.png" alt="" class="num-icon"></div>
         <h3>Невозможность отсепарироваться от детей</h3>
         <p>Дети так и остаются одним из главных смыслов вашей жизни и соответственно у детей в свою очередь не будет возможности повзрослеть до конца и пойти своим путем, отличным от вашего</p>
       </div>
       <div class="consequence reveal reveal-delay-1">
-        <div class="num">08</div>
+        <div class="num">08<img src="icons/free-icon-cocktail-1880326.png" alt="" class="num-icon"></div>
         <h3>Зависимости</h3>
         <p>Попытки заглушить переживания с помощью алкоголя, переедания, азартных игр или других рискованных форм поведения</p>
       </div>

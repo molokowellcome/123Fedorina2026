@@ -27,7 +27,7 @@
     color:var(--text);
     line-height:1.75;
     font-weight:400;
-    font-size:16px;
+    font-size:20px;
     overflow-x:hidden;
   }
   .serif{font-family:'Cormorant Garamond',serif;font-weight:500;letter-spacing:-0.01em}
@@ -48,16 +48,16 @@
   }
   nav.scrolled{border-bottom-color:var(--line);padding:14px 0}
   .nav-inner{display:flex;justify-content:space-between;align-items:center}
-  .logo{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;letter-spacing:.02em}
+  .logo{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;letter-spacing:.02em}
   .logo span{color:var(--accent)}
   .nav-links{display:flex;gap:38px;list-style:none}
-  .nav-links a{font-size:14px;font-weight:400;position:relative;transition:color .25s}
+  .nav-links a{font-size:18px;font-weight:400;position:relative;transition:color .25s}
   .nav-links a::after{content:'';position:absolute;left:0;bottom:-4px;width:0;height:1px;background:var(--accent);transition:width .3s}
   .nav-links a:hover{color:var(--accent)}
   .nav-links a:hover::after{width:100%}
   .nav-cta{
     padding:12px 26px;border:1px solid var(--text);border-radius:40px;
-    font-size:13px;font-weight:500;letter-spacing:.04em;
+    font-size:16px;font-weight:500;letter-spacing:.04em;
     transition:all .3s;
   }
   .nav-cta:hover{background:var(--accent);border-color:var(--accent);color:#fff}
@@ -96,7 +96,7 @@
     pointer-events:none;z-index:2;
   }
   .hero-content .eyebrow{
-    font-size:13px;letter-spacing:.3em;text-transform:uppercase;
+    font-size:16px;letter-spacing:.3em;text-transform:uppercase;
     color:var(--accent);margin-bottom:28px;font-weight:500;
   }
   .hero h1{
@@ -106,7 +106,7 @@
     margin-bottom:32px;
   }
   .hero h1 em{font-style:italic;color:var(--accent);font-weight:400}
-  .hero p{font-size:18px;color:var(--muted);margin-bottom:20px;max-width:560px}
+  .hero p{font-size:22px;color:var(--muted);margin-bottom:20px;max-width:560px}
   .hero p .hl{color:var(--accent);font-weight:600}
   .hero-features{
     list-style:none;margin:36px 0 44px;
@@ -114,7 +114,7 @@
   }
   .hero-features li{
     display:flex;gap:16px;align-items:flex-start;
-    font-size:15px;color:var(--text);
+    font-size:18px;color:var(--text);
   }
   .hero-features li::before{
     content:'';flex-shrink:0;width:8px;height:8px;
@@ -126,7 +126,7 @@
     padding:20px 44px;
     background:var(--accent);color:#fff;
     border-radius:50px;
-    font-size:13px;letter-spacing:.22em;text-transform:uppercase;
+    font-size:16px;letter-spacing:.22em;text-transform:uppercase;
     font-weight:500;
     transition:all .35s cubic-bezier(.2,.8,.2,1);
     position:relative;overflow:hidden;
@@ -135,14 +135,14 @@
   .btn-outline{background:transparent;color:var(--accent);border:1px solid var(--accent)}
   .btn-outline:hover{background:var(--accent);color:#fff}
   .hero-note{
-    margin-top:24px;font-size:14px;letter-spacing:.18em;
+    margin-top:24px;font-size:16px;letter-spacing:.18em;
     text-transform:uppercase;color:var(--accent);font-weight:500;
   }
 
   /* SECTION */
   section{padding:130px 0;position:relative}
   .section-label{
-    font-size:12px;letter-spacing:.3em;text-transform:uppercase;
+    font-size:16px;letter-spacing:.3em;text-transform:uppercase;
     color:var(--accent);margin-bottom:22px;font-weight:600;
   }
   .section-title{
@@ -152,7 +152,7 @@
     margin-bottom:28px;
   }
   .section-title em{font-style:italic;color:var(--accent);font-weight:400}
-  .section-sub{font-size:17px;color:var(--muted);max-width:640px;margin-bottom:60px}
+  .section-sub{font-size:19px;color:var(--muted);max-width:640px;margin-bottom:60px}
 
   /* Стрелки между блоками */
   .flow-arrow{
@@ -174,7 +174,7 @@
     padding:14px 0 14px 34px;
     border-bottom:1px solid var(--line);
     font-family:'Cormorant Garamond',serif;
-    font-size:22px;font-style:italic;
+    font-size:29px;font-style:italic;
     color:var(--text);
     line-height:1.35;
     transition:color .25s;
@@ -185,10 +185,10 @@
     position:absolute;left:0;top:13px;
     color:var(--accent);
     font-family:'Inter',sans-serif;
-    font-style:normal;font-size:17px;font-weight:500;
+    font-style:normal;font-size:18px;font-weight:500;
   }
   .voices li:hover{color:var(--accent)}
-  .problem-text{font-size:17px;color:var(--text);margin-bottom:18px}
+  .problem-text{font-size:19px;color:var(--text);margin-bottom:18px}
   .problem-text strong{color:var(--accent);font-weight:600}
   .dawn{
     margin-top:40px;padding:36px;
@@ -202,7 +202,7 @@
     font-size:24px;margin-bottom:16px;font-weight:500;
     line-height:1.35;
   }
-  .dawn p{font-size:16px;color:var(--muted);margin-bottom:12px}
+  .dawn p{font-size:18px;color:var(--muted);margin-bottom:12px}
   .dawn p:last-child{margin-bottom:0}
   .dawn em{color:var(--accent);font-style:italic;font-weight:500}
   .dawn strong{color:var(--accent);font-weight:600}
@@ -222,14 +222,14 @@
   .consequence:hover{background:var(--bg-2)}
   .consequence .num{
     font-family:'Cormorant Garamond',serif;
-    font-size:48px;color:var(--accent-soft);
+    font-size:50px;color:var(--accent-soft);
     font-weight:500;line-height:1;margin-bottom:18px;
   }
   .consequence h3{
     font-family:'Cormorant Garamond',serif;
-    font-size:24px;margin-bottom:14px;font-weight:500;
+    font-size:28px;margin-bottom:14px;font-weight:500;
   }
-  .consequence p{font-size:15px;color:var(--muted);line-height:1.7}
+  .consequence p{font-size:18px;color:var(--muted);line-height:1.7}
   .cta-center{text-align:center;margin-top:70px}
 
   /* BLOCK 4 - STEPS */
@@ -251,11 +251,11 @@
     font-size:26px;margin-bottom:16px;font-weight:500;
     line-height:1.35;
   }
-  .step p{font-size:16px;color:var(--muted);margin-bottom:12px}
+  .step p{font-size:19px;color:var(--muted);margin-bottom:12px}
   .step ul{list-style:none;margin:14px 0}
   .step ul li{
     padding-left:24px;position:relative;
-    font-size:15px;color:var(--muted);margin-bottom:8px;
+    font-size:19px;color:var(--muted);margin-bottom:8px;
   }
   .step ul li::before{
     content:'—';position:absolute;left:0;color:var(--accent);
@@ -264,13 +264,13 @@
     margin-top:18px;padding:18px 22px;
     background:var(--white);
     border-left:2px solid var(--accent);
-    font-size:15px;color:var(--text);
+    font-size:22px;color:var(--text);
     font-style:italic;
   }
   .step-result-1{
     margin-top:18px;padding:18px 22px;
     /* border-left:2px solid var(--accent); */
-    font-size:15px;color:var(--muted);
+    font-size:21px;color:var(--muted);
     font-style:normal;
   }
   .step-result strong{color:var(--accent);font-weight:600;font-style:normal}
@@ -301,19 +301,19 @@
   .price-card.featured .price-features li{color:rgba(255,255,255,.82)}
   .price-card.featured .price-tag{color:#fff}
   .price-tag{
-    font-size:12px;letter-spacing:.25em;text-transform:uppercase;
+    font-size:14px;letter-spacing:.25em;text-transform:uppercase;
     color:var(--accent);margin-bottom:22px;font-weight:600;
   }
   .price-card h3{
     font-family:'Cormorant Garamond',serif;
     font-size:38px;margin-bottom:18px;font-weight:500;line-height:1.15;
   }
-  .price-desc{font-size:15px;color:var(--muted);margin-bottom:32px;line-height:1.75}
+  .price-desc{font-size:19px;color:var(--muted);margin-bottom:32px;line-height:1.75}
   .price-card.featured .price-desc{color:rgba(255,255,255,.85)}
   .price-features{list-style:none;margin-bottom:36px}
   .price-features li{
     padding:14px 0;border-bottom:1px solid var(--line);
-    font-size:15px;display:flex;gap:14px;align-items:flex-start;
+    font-size:18px;display:flex;gap:14px;align-items:flex-start;
     line-height:1.6;
   }
   .price-features li::before{
@@ -324,7 +324,7 @@
   .price-features li.price-long-feature{
     display:block;
     padding:18px 0;
-    font-size:14px;
+    font-size:16px;
   }
   .price-features li.price-long-feature::before{display:none}
   .price-amount{margin-bottom:28px}
@@ -338,7 +338,7 @@
   }
   .price-new small{font-size:18px;font-weight:400;margin-left:4px}
   .price-installment{
-    font-size:13px;color:var(--muted);margin-top:10px;
+    font-size:16px;color:var(--muted);margin-top:10px;
     letter-spacing:.05em;
   }
   .price-card.featured .price-installment{color:rgba(255,255,255,.82)}
@@ -347,7 +347,7 @@
   .price-card.featured .btn:hover{background:var(--bg-2);color:var(--accent-dark)}
   .limited{
     text-align:center;margin-top:24px;
-    font-size:13px;letter-spacing:.2em;text-transform:uppercase;
+    font-size:19px;letter-spacing:.2em;text-transform:uppercase;
     color:var(--accent);font-weight:500;
   }
 
@@ -363,7 +363,7 @@
     line-height:1.8;
   }
   .faq-intro blockquote p{
-    font-size:16px;color:var(--text);margin-bottom:18px;
+    font-size:19px;color:var(--text);margin-bottom:18px;
   }
   .faq-intro blockquote p:last-child{margin-bottom:0}
   .faq-list{display:flex;flex-direction:column;gap:12px}
@@ -380,14 +380,14 @@
     display:flex;justify-content:space-between;align-items:center;
     cursor:pointer;
     font-family:'Cormorant Garamond',serif;
-    font-size:22px;font-weight:500;
+    font-size:24px;font-weight:500;
     gap:20px;
   }
   .faq-q .plus{
     width:32px;height:32px;border-radius:50%;
     border:1px solid var(--line);
     display:flex;align-items:center;justify-content:center;
-    font-size:20px;color:var(--accent);
+    font-size:24px;color:var(--accent);
     transition:transform .35s;
     flex-shrink:0;
   }
@@ -396,7 +396,7 @@
     max-height:0;overflow:hidden;
     transition:max-height .4s ease,padding .4s ease;
     padding:0 32px;
-    font-size:15px;color:var(--muted);line-height:1.8;
+    font-size:19px;color:var(--muted);line-height:1.8;
   }
   .faq-item.open .faq-a{max-height:400px;padding:0 32px 28px}
 
@@ -414,7 +414,7 @@
     pointer-events:none;z-index:2;
   }
   .about-text h2{margin-bottom:24px}
-  .about-text p{font-size:16px;color:var(--muted);margin-bottom:16px}
+  .about-text p{font-size:20px;color:var(--muted);margin-bottom:16px}
   .edu-item{margin-bottom:24px}
   .edu-item:last-child{margin-bottom:0}
 
@@ -427,11 +427,11 @@
   .footer-logo{font-family:'Cormorant Garamond',serif;font-size:32px;margin-bottom:18px}
   .footer-logo span{color:var(--accent-soft)}
   .footer-col h5{
-    font-size:12px;letter-spacing:.25em;text-transform:uppercase;
+    font-size:16px;letter-spacing:.25em;text-transform:uppercase;
     color:var(--accent-soft);margin-bottom:22px;font-weight:600;
   }
   .footer-col a{
-    display:block;font-size:14px;color:rgba(254,254,253,.75);
+    display:block;font-size:17px;color:rgba(254,254,253,.75);
     margin-bottom:12px;transition:color .25s;
   }
   .footer-col a:hover{color:#fff}
@@ -801,20 +801,20 @@
 
         <div class="edu-list reveal">
           <div class="edu-item">
-            <div style="font-size:12px; letter-spacing:.2em; text-transform:uppercase; color:var(--accent); margin-bottom:6px; font-weight:600;">Психолог-педагог</div>
-            <div style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:500; color:var(--text);">Вятский Государственный Гуманитарный Университет</div>
+            <div style="font-size:16px; letter-spacing:.2em; text-transform:uppercase; color:var(--accent); margin-bottom:6px; font-weight:600;">Психолог-педагог</div>
+            <div style="font-family:'Cormorant Garamond',serif; font-size:26px; font-weight:500; color:var(--text);">Вятский Государственный Гуманитарный Университет</div>
           </div>
           <div class="edu-item">
-            <div style="font-size:12px; letter-spacing:.2em; text-transform:uppercase; color:var(--accent); margin-bottom:6px; font-weight:600;">Семейное и детское консультирование</div>
-            <div style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:500; color:var(--text);">Московский Институт Психоанализа</div>
+            <div style="font-size:16px; letter-spacing:.2em; text-transform:uppercase; color:var(--accent); margin-bottom:6px; font-weight:600;">Семейное и детское консультирование</div>
+            <div style="font-family:'Cormorant Garamond',serif; font-size:26px; font-weight:500; color:var(--text);">Московский Институт Психоанализа</div>
           </div>
           <div class="edu-item">
-            <div style="font-size:12px; letter-spacing:.2em; text-transform:uppercase; color:var(--accent); margin-bottom:6px; font-weight:600;">Психоаналитический психотерапевт</div>
-            <div style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:500; color:var(--text);">Институт Психоанализа на Чистых прудах</div>
+            <div style="font-size:16px; letter-spacing:.2em; text-transform:uppercase; color:var(--accent); margin-bottom:6px; font-weight:600;">Психоаналитический психотерапевт</div>
+            <div style="font-family:'Cormorant Garamond',serif; font-size:26px; font-weight:500; color:var(--text);">Институт Психоанализа на Чистых прудах</div>
           </div>
           <div class="edu-item">
-            <div style="font-size:12px; letter-spacing:.2em; text-transform:uppercase; color:var(--accent); margin-bottom:6px; font-weight:600;">Психологическое консультирование взрослых</div>
-            <div style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:500; color:var(--text);">Академия Психологии и Коучинга</div>
+            <div style="font-size:16px; letter-spacing:.2em; text-transform:uppercase; color:var(--accent); margin-bottom:6px; font-weight:600;">Психологическое консультирование взрослых</div>
+            <div style="font-family:'Cormorant Garamond',serif; font-size:26px; font-weight:500; color:var(--text);">Академия Психологии и Коучинга</div>
           </div>
         </div>
       </div>
